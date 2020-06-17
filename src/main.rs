@@ -6,9 +6,9 @@ use std::env;
 
 fn shuffle_team() -> Vec<&'static str> {
     let mut rng = thread_rng();
-    let mut team = vec!["brian", "bil", "clay", "katie", "lee", "miles"];
-    team.shuffle(&mut rng);
-    team
+    let mut team_ids = vec!["<@U4B0785RC>", "<@UNMPMPE4A>", "<@UKEBL469E>", "<@UJUSBSF34>", "<@U010SGSK9NW>", "<@UU6TTJXJ7>"]; //brian, bil, clay, katie, lee, miles
+    team_ids.shuffle(&mut rng);
+    team_ids
 }
 
 fn main() {
