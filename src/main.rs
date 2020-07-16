@@ -11,8 +11,9 @@ fn shuffle_team() -> Vec<&'static str> {
         "<@UNMPMPE4A>",  // Bil
         "<@UKEBL469E>",  // Clay
         "<@UJUSBSF34>",  // Katie
-        "<@U010SGSK9NW>" // Lee
-        ];
+        "<@U010SGSK9NW>", // Lee
+        "<@U016W6K0RP0>", // George
+    ];
     team_ids.shuffle(&mut rng);
     team_ids.push("<@UU6TTJXJ7>"); // Miles goes last
     team_ids
