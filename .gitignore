@@ -1,1 +1,6 @@
 /target
+/google-cloud-sdk
+.envrc
+node_modules
+
+/coverage

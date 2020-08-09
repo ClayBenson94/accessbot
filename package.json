@@ -1,0 +1,36 @@
+{
+  "name": "accessbot",
+  "version": "0.0.0",
+  "description": "access bot",
+  "main": "build/src/index.js",
+  "types": "build/src/index.d.ts",
+  "files": [
+    "build/src"
+  ],
+  "license": "Apache-2.0",
+  "keywords": [],
+  "scripts": {
+    "test": "jest --coverage=true",
+    "compile": "tsc",
+    "check": "npm run clean && gts check",
+    "clean": "gts clean",
+    "echo": "echo $HOME",
+    "gcloud:build": "npm run clean && npm run check && tsc && gcloud builds submit --tag gcr.io/${GCLOUD_PROJECT_ID}/accessbot",
+    "gcloud:deploy": "npm run gcloud:build && gcloud run deploy --image gcr.io/${GCLOUD_PROJECT_ID}/accessbot --platform managed --set-env-vars SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET},SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}",
+    "start": "tsc && node build/src/index.js",
+    "fix": "gts fix",
+    "prepare": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "@types/node": "^13.11.1",
+    "gts": "^2.0.2",
+    "jest": "^26.1.4",
+    "ts-jest": "^26.1.4",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@slack/bolt": "^2.2.3",
+    "axios": "^0.19.2"
+  }
+}
