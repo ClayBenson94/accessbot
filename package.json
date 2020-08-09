@@ -29,6 +29,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "@slack/bolt": "^2.2.3"
+    "@slack/bolt": "^2.2.3",
+    "axios": "^0.19.2"
   }
 }
