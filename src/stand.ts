@@ -10,7 +10,7 @@ function shuffle(array: string[]) {
   }
 }
 
-function team(): string {
+export function team(): string {
   const ids = [
     '<@U4B0785RC>', // Brian
     '<@UNMPMPE4A>', // Bil
@@ -43,7 +43,7 @@ async function slack(msg: string): Promise<string> {
   return Promise.resolve('OK');
 }
 
-async function main() {
+export async function postStand() {
   const ids = team();
   try {
     await slack(ids);
@@ -51,5 +51,3 @@ async function main() {
     console.log(err);
   }
 }
-
-main();
