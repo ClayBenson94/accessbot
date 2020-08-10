@@ -1,13 +1,6 @@
 import {App} from '@slack/bolt';
 import {newRelicLinks, md} from './nr';
 
-const help = `:teacher: *Accessbot subcommands*
-- *new relic*: prints new relic links
-- *help*: prints help text
-
-Make a PR: https://github.com/kingishb/accessbot
-`;
-
 // Initializes your app with your bot token and signing secret
 const app = new App({
   token: process.env.SLACK_BOT_TOKEN,
@@ -15,6 +8,12 @@ const app = new App({
 });
 
 app.message(/^(accessbot|accessbot help)$/, async ({message, say}) => {
+  const help = `:teacher: *Accessbot subcommands*
+- *new relic*: prints new relic links
+- *help*: prints help text
+
+Make a PR: https://github.com/kingishb/accessbot
+`;
   await say(help);
 });
 
