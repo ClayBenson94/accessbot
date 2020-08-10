@@ -15,8 +15,8 @@
     "check": "npm run clean && gts check",
     "clean": "gts clean",
     "echo": "echo $HOME",
-    "gcloud:build": "npm run clean && npm run check && tsc && gcloud builds submit --tag gcr.io/${GCLOUD_PROJECT_ID}/accessbot",
-    "gcloud:deploy": "npm run gcloud:build && gcloud run deploy --image gcr.io/${GCLOUD_PROJECT_ID}/accessbot --platform managed --set-env-vars SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET},SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}",
+    "gcloud:build": "npm run clean &&  tsc && gcloud builds submit --tag gcr.io/${GCLOUD_PROJECT_ID}/accessbot",
+    "gcloud:deploy": "npm run gcloud:build && gcloud run deploy --image gcr.io/${GCLOUD_PROJECT_ID}/accessbot --platform managed --set-env-vars SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET},SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN},NEW_RELIC_LINKS=\"${NEW_RELIC_LINKS}\"",
     "start": "tsc && node build/src/index.js",
     "fix": "gts fix",
     "prepare": "npm run compile"

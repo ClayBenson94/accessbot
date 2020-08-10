@@ -4,9 +4,9 @@ type Link = {
 };
 
 export function md(links: Link[]): string {
-  let text = 'New Relic URLs:\n';
+  let text = ':chart_with_upwards_trend: *New Relic*:\n';
   for (let l of links) {
-    text += `<${l.url}|${l.name}>\n`;
+    text += `- <${l.url}|${l.name}>\n`;
   }
   return text;
 }
@@ -17,7 +17,7 @@ export function newRelicLinks(): Link[] {
     if (!s) {
       return [];
     }
-    const j = JSON.parse(s);
+    const j = JSON.parse(new Buffer(s, 'base64').toString('ascii'));
     // validate input
     if (!Array.isArray(j)) {
       return [];

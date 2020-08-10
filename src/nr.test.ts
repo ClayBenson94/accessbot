@@ -17,7 +17,8 @@ describe('parse env vars', () => {
   it('parses json links correctly', () => {
     const cases = [
       {
-        case: '[{"name": "a", "url": "b"}]',
+        // '[{"name": "a", "url": "b"}]'
+        case: 'W3sibmFtZSI6ICJhIiwgInVybCI6ICJiIn1d',
         expected: [
           {
             name: 'a',
@@ -26,11 +27,13 @@ describe('parse env vars', () => {
         ],
       },
       {
+        // '[{"name": "a"}]'
         case: '[{"name": "a"}]',
         expected: [],
       },
       {
-        case: '{"a": "b"}',
+        // '{"a": "b"}'
+        case: 'eyJhIjogImIifQ==',
         expected: [],
       },
     ];
