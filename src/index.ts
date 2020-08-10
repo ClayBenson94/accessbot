@@ -2,8 +2,8 @@ import {App} from '@slack/bolt';
 import {newRelicLinks, md} from './nr';
 
 const help = `:teacher: *Accessbot commands*
-- new relic: prints new relic links
-- help: prints help text`;
+- *new relic*: prints new relic links
+- *help*: prints help text`;
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
