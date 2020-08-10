@@ -11,11 +11,11 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-app.message('help', async ({message, say}) => {
+app.message(/^help$/, async ({message, say}) => {
   await say(help);
 });
 
-app.message('new relic', async ({message, say}) => {
+app.message(/^new relic$/, async ({context, say}) => {
   const links = newRelicLinks();
   const txt = md(links);
   await say(txt);
