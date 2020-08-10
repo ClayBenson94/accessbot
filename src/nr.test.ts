@@ -8,7 +8,7 @@ describe('formats md text', () => {
         url: 'b',
       },
     ];
-    const want = `New Relic URLs:\n<b|a>\n`;
+    const want = `:chart_with_upwards_trend: *New Relic*:\n- <b|a>\n`;
     expect(md(input)).toBe(want);
   });
 });

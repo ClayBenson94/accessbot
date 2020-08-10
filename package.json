@@ -10,7 +10,7 @@
   "license": "Apache-2.0",
   "keywords": [],
   "scripts": {
-    "test": "jest --coverage=true",
+    "test": "tsc && jest",
     "compile": "tsc",
     "check": "npm run clean && gts check",
     "clean": "gts clean",

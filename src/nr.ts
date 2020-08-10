@@ -17,7 +17,7 @@ export function newRelicLinks(): Link[] {
     if (!s) {
       return [];
     }
-    const j = JSON.parse(new Buffer(s, 'base64').toString('ascii'));
+    const j = JSON.parse(Buffer.from(s, 'base64').toString('ascii'));
     // validate input
     if (!Array.isArray(j)) {
       return [];
