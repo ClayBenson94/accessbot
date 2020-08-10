@@ -1,7 +1,7 @@
 import {App} from '@slack/bolt';
 import {newRelicLinks, md} from './nr';
 
-const help = `:teacher: *Accessbot commands*
+const help = `:teacher: *Accessbot subcommands*
 - *new relic*: prints new relic links
 - *help*: prints help text
 
@@ -14,11 +14,11 @@ const app = new App({
   signingSecret: process.env.SLACK_SIGNING_SECRET,
 });
 
-app.message(/^help$/, async ({message, say}) => {
+app.message(/^(accessbot|accessbot help)$/, async ({message, say}) => {
   await say(help);
 });
 
-app.message(/^new relic$/, async ({context, say}) => {
+app.message(/^accessbot new relic$/, async ({context, say}) => {
   const links = newRelicLinks();
   const txt = md(links);
   await say(txt);
