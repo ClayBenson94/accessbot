@@ -3,7 +3,10 @@ import {newRelicLinks, md} from './nr';
 
 const help = `:teacher: *Accessbot commands*
 - *new relic*: prints new relic links
-- *help*: prints help text`;
+- *help*: prints help text
+
+Make a PR: https://github.com/kingishb/accessbot
+`;
 
 // Initializes your app with your bot token and signing secret
 const app = new App({
