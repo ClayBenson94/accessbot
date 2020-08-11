@@ -16,34 +16,33 @@ describe("formats md text", () => {
 describe("parse env vars", () => {
   const cases = [
     {
-      // '[{"name": "a", "url": "b"}]'
-      case: "W3sibmFtZSI6ICJhIiwgInVybCI6ICJiIn1d",
-      expected: [
-        {
-          name: "a",
-          url: "b",
-        },
-      ],
+      // '[{"name": "a", "url": "http://b.com"}]'
+      case: "W3sibmFtZSI6ICJhIiwgInVybCI6ICJodHRwOi8vYi5jb20ifV0=",
+      error: false,
       msg: "correct",
     },
     {
       // '[{"name": "a"}]'
       case: "W3sibmFtZSI6ICJhIn1d",
-      expected: [],
+      error: true,
       msg: "incomplete",
     },
     {
       // '{"a": "b"}'
       case: "eyJhIjogImIifQ==",
-      expected: [],
+      error: true,
       msg: "malformed",
     },
   ];
   for (let c of cases) {
     it(c.msg, () => {
       process.env.NEW_RELIC_LINKS = c.case;
-      const links = nr.newRelicLinks();
-      expect(links).toStrictEqual(c.expected);
+      const result = nr.newRelicLinks();
+      if (c.error) {
+        expect(result.error).toBeDefined();
+      } else {
+        expect(result.error).toBeUndefined();
+      }
     });
   }
 });
