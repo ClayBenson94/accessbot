@@ -1,4 +1,4 @@
-const {newRelicLinks, md} = require("./nr");
+const nr = require("./nr");
 
 describe("formats md text", () => {
   it("formats md", () => {
@@ -9,7 +9,7 @@ describe("formats md text", () => {
       },
     ];
     const want = `:chart_with_upwards_trend: *New Relic*:\n- <b|a>\n`;
-    expect(md(input)).toBe(want);
+    expect(nr.md(input)).toBe(want);
   });
 });
 
@@ -42,7 +42,7 @@ describe("parse env vars", () => {
   for (let c of cases) {
     it(c.msg, () => {
       process.env.NEW_RELIC_LINKS = c.case;
-      const links = newRelicLinks();
+      const links = nr.newRelicLinks();
       expect(links).toStrictEqual(c.expected);
     });
   }
