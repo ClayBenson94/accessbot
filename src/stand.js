@@ -1,4 +1,4 @@
-const axios = require('axios');
+const axios = require("axios");
 
 function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -14,34 +14,31 @@ function shuffle(array) {
  */
 function team() {
   const ids = [
-    '<@U4B0785RC>', // Brian
-    '<@UNMPMPE4A>', // Bil
-    '<@UKEBL469E>', // Clay
-    '<@UJUSBSF34>', // Katie
-    '<@U010SGSK9NW>', // Lee
-    '<@U016W6K0RP0>', // George
+    "<@U4B0785RC>", // Brian
+    "<@UNMPMPE4A>", // Bil
+    "<@UKEBL469E>", // Clay
+    "<@UJUSBSF34>", // Katie
+    "<@U010SGSK9NW>", // Lee
+    "<@U016W6K0RP0>", // George
   ];
 
-  const miles = '<@UU6TTJXJ7>';
+  const miles = "<@UU6TTJXJ7>";
 
   shuffle(ids);
   ids.push(miles);
-  return ids.join(', ');
+  return ids.join(", ");
 }
 
 async function slack(msg) {
   try {
     const url = process.env.SLACK_WEBHOOK;
-    if (!url) {
-      return Promise.reject('no webhook');
-    }
     await axios.post(url, {
       msg: msg,
     });
   } catch (error) {
     console.error(error);
   }
-  return Promise.resolve('OK');
+  return Promise.resolve("OK");
 }
 
 /**
