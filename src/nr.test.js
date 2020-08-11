@@ -1,4 +1,4 @@
-import {newRelicLinks, md} from './nr';
+const {newRelicLinks, md} = require('./nr');
 
 describe('formats md text', () => {
   it('formats md', () => {

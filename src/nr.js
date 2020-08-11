@@ -1,9 +1,4 @@
-type Link = {
-  name: string;
-  url: string;
-};
-
-export function md(links: Link[]): string {
+function md(links) {
   let text = ':chart_with_upwards_trend: *New Relic*:\n';
   for (let l of links) {
     text += `- <${l.url}|${l.name}>\n`;
@@ -11,12 +6,9 @@ export function md(links: Link[]): string {
   return text;
 }
 
-export function newRelicLinks(): Link[] {
+function newRelicLinks() {
   try {
     const s = process.env.NEW_RELIC_LINKS;
-    if (!s) {
-      return [];
-    }
     const j = JSON.parse(Buffer.from(s, 'base64').toString('ascii'));
     // validate input
     if (!Array.isArray(j)) {
@@ -32,3 +24,5 @@ export function newRelicLinks(): Link[] {
     return [];
   }
 }
+
+module.exports = {md, newRelicLinks};

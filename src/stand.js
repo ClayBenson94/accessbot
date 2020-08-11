@@ -1,8 +1,6 @@
-import axios from 'axios';
+const axios = require('axios');
 
-// fischer-yates shuffle
-// src: https://javascript.info/task/shuffle
-function shuffle(array: string[]) {
+function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
 
@@ -10,7 +8,11 @@ function shuffle(array: string[]) {
   }
 }
 
-export function team(): string {
+/**
+ * team returns a comma separated list of team members
+ * in random order.
+ */
+function team() {
   const ids = [
     '<@U4B0785RC>', // Brian
     '<@UNMPMPE4A>', // Bil
@@ -27,27 +29,31 @@ export function team(): string {
   return ids.join(', ');
 }
 
-async function slack(msg: string): Promise<string> {
-  const url = process.env.SLACK_WEBHOOK;
-  if (!url) {
-    return Promise.reject('no webhook');
-  }
+async function slack(msg) {
   try {
-    const response = await axios.post(url, {
+    const url = process.env.SLACK_WEBHOOK;
+    if (!url) {
+      return Promise.reject('no webhook');
+    }
+    await axios.post(url, {
       msg: msg,
     });
-    console.log(response);
   } catch (error) {
     console.error(error);
   }
   return Promise.resolve('OK');
 }
 
-export async function postStand() {
-  const ids = team();
+/**
+ * postStand posts a randomized team list to slack.
+ */
+async function postStand() {
   try {
+    const ids = team();
     await slack(ids);
   } catch (err) {
     console.log(err);
   }
 }
+
+module.exports = {postStand, team};

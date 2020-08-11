@@ -1,5 +1,5 @@
-import {App} from '@slack/bolt';
-import {newRelicLinks, md} from './nr';
+const {App} = require('@slack/bolt');
+const {newRelicLinks, md} = require('./nr');
 
 async function main() {
   const app = new App({

@@ -1,4 +1,4 @@
-import {team} from './stand';
+const {team} = require('./stand');
 
 describe('shuffle names', () => {
   it('shuffles the names in random order', () => {
