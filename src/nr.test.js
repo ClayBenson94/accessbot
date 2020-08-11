@@ -28,7 +28,7 @@ describe("parse env vars", () => {
     },
     {
       // '[{"name": "a"}]'
-      case: '[{"name": "a"}]',
+      case: "W3sibmFtZSI6ICJhIn1d",
       expected: [],
       msg: "incomplete",
     },
