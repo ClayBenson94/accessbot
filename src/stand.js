@@ -20,6 +20,7 @@ function team() {
     "<@UJUSBSF34>", // Katie
     "<@U010SGSK9NW>", // Lee
     "<@U016W6K0RP0>", // George
+    "<@U01AMUU8L87>", // Ben
   ];
 
   const miles = "<@UU6TTJXJ7>";
