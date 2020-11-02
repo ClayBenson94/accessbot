@@ -17,7 +17,6 @@ function team() {
     "<@U4B0785RC>", // Brian
     "<@UNMPMPE4A>", // Bil
     "<@UKEBL469E>", // Clay
-    "<@UJUSBSF34>", // Katie
     "<@U010SGSK9NW>", // Lee
     "<@U016W6K0RP0>", // George
     "<@U01AMUU8L87>", // Ben
