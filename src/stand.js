@@ -21,12 +21,10 @@ function team() {
     "<@U010SGSK9NW>", // Lee
     "<@U016W6K0RP0>", // George
     "<@U01AMUU8L87>", // Ben
+    "<@U01FRRD97MF>", // Tim
   ];
 
-  const miles = "<@UU6TTJXJ7>";
-
   shuffle(ids);
-  ids.push(miles);
   return ids.join(", ");
 }
 
